@@ -34,7 +34,7 @@
     font-size: 2.75rem;
 }
 
-.quote-text:hover {
+#quote:hover {
     color:#38a1f3;
 }
 
@@ -99,7 +99,7 @@ button:active {
 
 /* New quote */
 #new-quote:active {
-    background-color: #fff;
+    background-color: #bdbdbd;
     color: #000;
 }
 

@@ -1,5 +1,13 @@
 "use strict";
 
+const quoteContainer = document.getElementById("quote-container");
+const quoteText = document.getElementById("quote");
+const authorText = document.getElementById("author");
+
+// Buttons - Event Listeners
+const twitterBtn = document.getElementById("twitter");
+const newQuoteBtn = document.getElementById("new-quote");
+
 let apiQuotes = [];
 
 // Getting Quotes from API
@@ -14,6 +22,10 @@ async function getQuotes() {
         alert("Oops! Apparently something went wrong!");
     }
 }
+
+// Adding Event Listeners
+twitterBtn.addEventListener("click", tweetQuote);
+newQuoteBtn.addEventListener("click", newQuote);
 
 // On Load
 getQuotes();
