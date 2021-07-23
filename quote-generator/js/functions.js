@@ -1,7 +1,22 @@
 "use strict";
 
+// Preloading
+function loading() {
+    loader.hidden = false;
+    quoteContainer.hidden = true;
+}
+
+// Loading complete
+function loadingComplete() {
+    quoteContainer.hidden = false;
+    loader.hidden = true;
+}
+
 // Showing new quote
 function newQuote() {
+    // Preloading
+    loading();
+
     // Random quote from apiQuotes array
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
 
@@ -18,7 +33,10 @@ function newQuote() {
     } else {
         quoteText.classList.remove("long-quote");
     }
+
+    // Setting quote, hiding loader
     quoteText.textContent = quote.text;
+    loadingComplete();
 }
 
 // Tweeting quote
