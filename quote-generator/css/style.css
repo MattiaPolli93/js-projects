@@ -1,3 +1,4 @@
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -12,4 +13,48 @@
     align-items: center;
     font-weight: 700;
     min-height: 100vh;
+}
+
+/* Container */
+.quote-container {
+    background-color: #ffffffc2;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px 5px #00000033;
+    max-width: 900px;
+    padding: 20px 30px;
+    text-align: center;
+    width: auto;
+}
+
+/* Text */
+.quote-text {
+    font-size: 2.75rem;
+}
+
+/* When needed */
+.long-quote {
+    font-size: 2rem;
+}
+
+/* Quote icon */
+.fa-quote-left {
+    font-size: 4rem;
+}
+
+.quote-author {
+    margin-top: 15px;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Media queries */
+@media screen and (max-width: 992px) {
+    .quote-container {
+        margin: auto 15px;
+    }
+
+    .quote-text {
+        font-size: 2.5rem;
+    }
 }
