@@ -27,6 +27,7 @@ async function getQuotes() {
     } catch (error) {
         // Catching Error
         alert("Oops! Apparently something went wrong!");
+        console.log(error);
     }
 }
 
