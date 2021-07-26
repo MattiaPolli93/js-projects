@@ -48,10 +48,10 @@ h1 {
 /* Media queries */
 @media screen and (max-width: 576px) {
     h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     .image-container {
         margin: 15px;
     }
-} 
+}
