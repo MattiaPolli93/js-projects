@@ -7,12 +7,15 @@ const loader = document.getElementById("loader");
 let ready = false;
 let imagesLoaded = 0;
 let totalImages = 0;
-
+let onLoad = true;
 let photosArray = [];
 
 // Unsplash API
-const count = 30; // Number of images loaded each time
-const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}` // Loading random images
+let initialCount = 5; // Number of images loaded initially
+let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${initialCount}` // Loading random images
+
+// When loading - displaying 5 images
+getPhotos();
 
 // If scrolling is near bottom page, load more photos
 window.addEventListener("scroll", () => {
@@ -21,6 +24,3 @@ window.addEventListener("scroll", () => {
         getPhotos();
     }
 });
-
-// On load
-getPhotos();
