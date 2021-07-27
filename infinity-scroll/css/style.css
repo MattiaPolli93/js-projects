@@ -41,6 +41,7 @@ h1 {
 }
 
 .image-container img {
+    border-radius: 15px;
     margin-top: 10px;
     width: 100%;
 }

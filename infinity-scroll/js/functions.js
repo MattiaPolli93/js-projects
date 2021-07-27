@@ -1,5 +1,14 @@
 "use strict";
 
+// Checking if all images were loaded
+function imageLoaded() {
+    imagesLoaded++;
+    if (imagesLoaded === totalImages) {
+        ready = true;
+        loader.hidden = true;
+    }
+}
+
 // Helper function to set attributes on DOM elements
 function setAttributes(element, attributes) {
     for (const key in attributes) {
@@ -9,6 +18,12 @@ function setAttributes(element, attributes) {
 
 // Creating elements for links & photos, adding them to the DOM
 function displayPhotos() {
+    // Resetting
+    imagesLoaded = 0;
+
+    // Matching
+    totalImages = photosArray.length;
+
     // Running function for each object in the array
     photosArray.forEach((photo) => {
         // Creating <a> to link to Unsplash
@@ -16,6 +31,7 @@ function displayPhotos() {
         setAttributes(item, {
             href: photo.links.html,
             target: "_blank",
+            rel: "noreferrer"
         });
 
         // Creating <img> for photo
@@ -25,6 +41,9 @@ function displayPhotos() {
             alt: photo.alt_description,
             title: photo.alt_description
         });
+
+        // Checking when loading is finished
+        img.addEventListener("load", imageLoaded);
 
         // Putting <img> inside <a>, then putting both inside the imageContainer element
         item.appendChild(img);
