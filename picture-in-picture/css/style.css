@@ -35,6 +35,7 @@ button {
     letter-spacing: 2px;
     outline: none;
     text-shadow: 4px 4px 3px #c94e4e;
+    text-transform: uppercase;
     width: 150px;
 }
 
