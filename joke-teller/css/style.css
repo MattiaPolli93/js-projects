@@ -1,5 +1,66 @@
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Style */
+body {
+    background-color: #45badd;
+}
+
+.flex {
+    display: flex;
+}
+
+.container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: url("../img/robot.gif");
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+button {
+    height: 50px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.25rem;
+    background-color: #ff3482;
+    color: #fff;
+    box-shadow: 2px 2px 20px 10px #00000033;
+    outline: none;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:disabled {
+    filter: brightness(30%);
+    cursor: default;
+}
+
+button:hover {
+    filter: brightness(95%);
+}
+
+/* Media Queries */
+@media screen and (max-width: 992px) {
+    .container {
+        background-size: cover;
+        background-position: center center;
+    }
+
+    button {
+        box-shadow: 5px 5px 30px 20px #00000080;
+    }
 }
