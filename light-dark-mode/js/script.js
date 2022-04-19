@@ -25,7 +25,7 @@ function toggleDarkLightMode(isDark) {
     textBox.style.backgroundColor = isDark ? "rgb(255 255 255 / 50%)" : "rgb(0 0 0 / 50%)";
     darkLightText.textContent = isDark ? "Dark Mode" : "Light Mode";
     isDark ? darkLightIcon.classList.replace("fa-sun", "fa-moon") : darkLightIcon.classList.replace("fa-moon", "fa-sun");
-    isDark ? imageMode( DARK_THEME) : imageMode(LIGHT_THEME);
+    isDark ? imageMode(DARK_THEME) : imageMode(LIGHT_THEME);
 }
 
 // Switch Theme Dynamically
