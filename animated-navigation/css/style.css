@@ -9,6 +9,7 @@
   --navColor5: #2c8437;
 }
 
+/* Reset */
 *,
 *::before,
 *::after {
@@ -23,9 +24,9 @@ html {
 }
 
 body {
-  margin: 0;
-  font-family: "Roboto Mono", monospace;
-  background: #000;
+    margin: 0;
+    font-family: "Roboto Mono", monospace;
+    background: #000;
 }
 
 /* Navigation Menu */
