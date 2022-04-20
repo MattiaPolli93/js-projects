@@ -29,7 +29,6 @@ body {
 }
 
 /* Navigation Menu */
-
 /* Overlay */
 .overlay {
     position: fixed;
@@ -39,6 +38,17 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.7);
+    transform: translateX(-100vw);
+}
+
+.overlay-slide-right {
+    transform: translateX(0);
+    transition: all .4s ease-in-out;
+}
+
+.overlay-slide-left {
+    transform: translateX(-100vw);
+    transition: all .8s ease-in-out;
 }
 
 /* Nav Menu Items */
@@ -111,6 +121,68 @@ body {
     transform: scale(1.2);
 }
 
+/* Slide in Animations */
+.slide-in-1 {
+    animation: slide-in .4s linear .2s both;
+}
+
+.slide-in-2 {
+    animation: slide-in .4s linear .4s both;
+}
+
+.slide-in-3 {
+    animation: slide-in .4s linear .6s both;
+}
+
+.slide-in-4 {
+    animation: slide-in .4s linear .8s both;
+}
+
+.slide-in-5 {
+    animation: slide-in .4s linear 1s both;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Slide out Animations */
+.slide-out-1 {
+    animation: slide-out .3s linear .5s both;
+}
+
+.slide-out-2 {
+    animation: slide-out .3s linear .4s both;
+}
+
+.slide-out-3 {
+    animation: slide-out .3s linear .3s both;
+}
+
+.slide-out-4 {
+    animation: slide-out .3s linear .2s both;
+}
+
+.slide-out-5 {
+    animation: slide-out .3s linear .1s both;
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
 /* Menu Bars */
 .menu-bars {
     position: fixed;
@@ -147,7 +219,6 @@ body {
 }
 
 /* Sections */
-
 section {
     position: relative;
     display: flex;
@@ -161,7 +232,7 @@ section {
 }
 
 #home {
-    background-image: url("https://images.unsplash.com/photo-1581453904507-626ddb717f14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80");
+    background-image: url("https://images.unsplash.com/photo-1515859005217-8a1f08870f59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1110&q=80");
     background-position: center center;
     background-size: cover;
 }
