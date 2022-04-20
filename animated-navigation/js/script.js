@@ -11,7 +11,7 @@ const navItems = [nav1, nav2, nav3, nav4, nav5];
 
 function navAnimation(dir1, dir2) {
     navItems.forEach((nav, i) => {
-        nav.classList.replace(`slide-${dir1}-${i+1}`, `slide-${dir2}-${i+1}`);
+        nav.classList.replace(`slide-${dir1}-${i + 1}`, `slide-${dir2}-${i + 1}`);
     });
 }
 
