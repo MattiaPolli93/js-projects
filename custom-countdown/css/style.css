@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Akshar&display=swap");
+
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Akshar", sans-serif;
+    overflow-y: hidden;
+}
+
+/* Video Background */
+.video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: auto;
+    width: 100vw;
+}
+
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, .35);
+}
+
+/* Container */
+.container {
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    min-height: 19rem;
+    min-width: 36.25rem;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 1.5rem 3.125;
+    background-color: rgba(255, 255, 255, .85);
+    color: #000000;
+}
+
+.input-container {
+    position: relative;
+    top: 1.25rem;
+}
+
+h1 {
+    margin-top: .5rem;
+    margin-bottom: .625rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Form */
+.form {
+    width: 30rem;
+}
+
+label {
+    margin-left: .625rem;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 1.25rem;
+    margin-bottom: .625rem;
+    padding: .625rem;
+    font-family: "Akshar", sans-serif;
+    background: #fff;
+    /* outline: none; */
+}
+
+input:focus {
+    outline: thin dotted;
+}
+
+/* Button */
+button {
+    height: 2.5rem;
+    width: 100%;
+    border: none;
+    border-radius: 1.25rem;
+    margin-top: .75rem;
+    text-transform: uppercase;
+    background: #006959;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: thick dotted;
+}
+
+button:hover {
+    filter: brightness(110%);
+}
+
+/* Countdown */
+ul {
+    margin-left: -2.75rem;
+}
+
+li {
+    display: inline-block;
+    padding: .625rem;
+    font-size: 1.75rem;
+    list-style-type: none;
+    text-transform: uppercase;
+}
+
+li span {
+    display: block;
+    font-size: 5rem;
+    text-align: center;
+}
+
+/* Complete */
+.complete {
+    position: relative;
+    top: 3.75rem;
+}
+
+.complete-title {
+    animation: complete 4s infinite;
+}
+
+@keyframes complete {
+    0% {
+        color: #ff0000;
+    }
+
+    25% {
+        color: #fff200;
+    }
+
+    50% {
+        color: #00ff0d;
+        transform: scale(1.5);
+    }
+
+    75% {
+        color: #001eff;
+    }
+
+    100% {
+        color: #ff00c3;
+    }
+}
+
+/* Media Query: Large Smartphone (Vertical) */
+@media screen and (max-width: 600px) {
+    .video-background {
+        height: 100vh;
+        width: 100vw;
+    }
+    
+    video {
+        margin-top: -1px;
+        object-fit: cover;
+        object-position: 70%;
+    }
+
+    .container {
+        min-height: 15.25rem;
+        min-width: unset;
+        width: 95vw;
+        margin: .625rem;
+        padding: 1.25rem;
+    }
+
+    .input-container {
+        top: unset;
+    }
+
+    .countdown {
+        position: relative;
+        top: .625rem;
+    }
+
+    .form {
+        width: unset;
+    }
+
+    input {
+        width: 93%;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    li {
+        font-size: 1rem;
+    }
+
+    li span {
+        font-size: 2.5rem;
+    }
+}
