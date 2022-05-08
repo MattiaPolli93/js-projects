@@ -34,6 +34,42 @@ function validate(nameValue, urlValue) {
     return true;
 }
 
+function buildBookmarks() {
+    bookmarksContainer.textContent = "";
+
+    // Build items
+    bookmarks.forEach(bookmark => {
+        const { name, url } = bookmark;
+
+        const item = document.createElement("div");
+        item.classList.add("item");
+
+        const closeIcon = document.createElement("i");
+        closeIcon.classList.add("fas", "fa-trash-alt");
+        closeIcon.setAttribute("title", "Delete Bookmark");
+        closeIcon.setAttribute("onclick", `deleteBookmark("${url}")`);
+
+        const linkInfo = document.createElement("div");
+        linkInfo.classList.add("name");
+
+        const favicon = document.createElement("img");
+        favicon.setAttribute("src", `https://s2.googleusercontent.com/s2/favicons?domain=${url}`);
+        favicon.setAttribute("alt", "Favicon");
+        favicon.classList.add("name__img");
+
+        const link = document.createElement("a");
+        link.classList.add("name__link");
+        link.setAttribute("href", `${url}`);
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noreferrer");
+        link.textContent = name;
+
+        linkInfo.append(favicon, link);
+        item.append(closeIcon, linkInfo);
+        bookmarksContainer.appendChild(item);
+    });
+}
+
 function fetchBookmarks() {
     if (localStorage.getItem("bookmarks")) {
         bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
@@ -46,6 +82,19 @@ function fetchBookmarks() {
         ];
         localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
     }
+
+    buildBookmarks();
+}
+
+function deleteBookmark(url) {
+    bookmarks.forEach((bookmark, i) => {
+        if (bookmark.url === url) {
+            bookmarks.splice(i, 1);
+        }
+
+        localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+        fetchBookmarks();
+    });
 }
 
 function storeBookmark(e) {
