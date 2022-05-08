@@ -8,6 +8,8 @@ const websiteNameEl = document.getElementById("website-name");
 const websiteUrlEl = document.getElementById("website-url");
 const bookmarksContainer = document.getElementById("bookmarks-container");
 
+let bookmarks = [];
+
 // Show Modal, Focus on Input
 function showModal() {
     modal.classList.add("show-modal");
@@ -32,6 +34,20 @@ function validate(nameValue, urlValue) {
     return true;
 }
 
+function fetchBookmarks() {
+    if (localStorage.getItem("bookmarks")) {
+        bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+    } else {
+        bookmarks = [
+            {
+                name: "Mattia",
+                url: "https://books.google.com"
+            }
+        ];
+        localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    }
+}
+
 function storeBookmark(e) {
     e.preventDefault();
     const nameValue = websiteNameEl.value;
@@ -42,6 +58,16 @@ function storeBookmark(e) {
     }
 
     if (!validate(nameValue, urlValue)) return false;
+
+    const bookmark = {
+        name: nameValue,
+        url: urlValue
+    };
+    bookmarks.push(bookmark);
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    fetchBookmarks();
+    bookmarkForm.reset();
+    websiteNameEl.focus();
 }
 
 // Modal Event Listeners
@@ -51,3 +77,6 @@ window.addEventListener("click", (e) => (e.target === modal ? modal.classList.re
 
 // Event Listeners
 bookmarkForm.addEventListener("submit", storeBookmark);
+
+// On Load, Fetch Bookmarks
+fetchBookmarks();
